@@ -1,16 +1,22 @@
 package com.tool.warranty_status.Entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="device")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Device {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="serialnumber")
+    @Column(name="serial_number")
     private long serialNumber;
 
     @Column(name="brand")
@@ -18,45 +24,4 @@ public class Device {
 
     @Column(name="model")
     private String model;
-
-    public Device(long id, long serialNumber, String brand, String model) {
-        this.id = id;
-        this.serialNumber = serialNumber;
-        this.brand = brand;
-        this.model = model;
-    }
-
-    public Device() {}
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(long serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
 }
